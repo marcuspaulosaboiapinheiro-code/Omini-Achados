@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AchadosTop | As Melhores Ofertas dos Marketplaces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        shopee: '#ee4d2d',
+                        amazon: '#ff9900',
+                        mercadolivre: '#ffe600',
+                        aliexpress: '#ff4747'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.25);
+        }
+        .shopee-badge { background-color: #ee4d2d; color: white; }
+        .amazon-badge { background-color: #232f3e; color: #ff9900; }
+        .ml-badge { background-color: #ffe600; color: #2d3277; }
+        .ali-badge { background-color: #ff4747; color: white; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- Notification Top Bar -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 text-white text-xs sm:text-sm font-medium py-2 px-4 text-center">
+        <div class="container mx-auto flex items-center justify-center gap-2">
+            <span class="bg-white/20 px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold">Novo</span>
+            <span>🔥 As melhores ofertas do dia verificadas em tempo real!</span>
+            <a href="#produtos" class="underline font-semibold hover:text-emerald-200 transition">Ver Achados</a>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="container mx-auto px-4 py-3 sm:py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Logo & Brand -->
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition transform">
+                        <i class="fa-solid font-black text-xl fa-bag-shopping"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-brand-700 to-emerald-600 bg-clip-text text-transparent">
+                            Achados<span class="text-brand-600">Top</span>
+                        </span>
+                        <p class="text-[10px] text-slate-500 font-medium -mt-1">Garimpo de ofertas e cupons</p>
+                    </div>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="w-full md:max-w-md relative">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="O que você está procurando hoje?" 
+                           class="w-full pl-10 pr-10 py-2.5 bg-slate-100 hover:bg-slate-200/60 focus:bg-white text-sm rounded-full border border-transparent focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <button id="clearSearch" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Header Quick Links -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#cupons" class="px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-brand-600 transition flex items-center gap-1.5 rounded-lg hover:bg-slate-100">
+                    <i class="fa-solid fa-ticket text-brand-600"></i> Cupons
+                </a>
+                <a href="https://telegram.org" target="_blank" class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-full shadow-sm hover:shadow transition flex items-center gap-2">
+                    <i class="fa-brands fa-telegram text-base"></i> Grupo VIP
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-12 md:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-400 text-xs font-semibold mb-4 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                Links 100% Verificados & Seguros
+            </span>
+            
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+                Encontre os Melhores <span class="bg-gradient-to-r from-brand-400 to-emerald-300 bg-clip-text text-transparent">Achados do Dia</span> com Desconto
+            </h1>
+            
+            <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
+                Selecionamos e testamos diariamente as promoções imperdíveis na Shopee, Amazon, Mercado Livre e AliExpress. Economize tempo e dinheiro em cada compra!
+            </p>
+
+            <!-- Marketplace Badges Pill -->
+            <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-slate-300">
+                <span class="text-slate-400">Garimpamos em:</span>
+                <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bag-shopping text-shopee"></i> Shopee
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1.5">
+                    <i class="fa-brands fa-amazon text-amazon"></i> Amazon
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-yellow-400"></i> Mercado Livre
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 flex items-center gap-1.5">
+                    <i class="fa-solid fa-cart-shopping text-aliexpress"></i> AliExpress
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8 flex-1" id="produtos">
+        
+        <!-- Controls & Filter Section -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
+            
+            <!-- Category Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none" id="categoryContainer">
+                <button class="category-btn active px-4 py-2 rounded-full text-xs font-bold transition whitespace-nowrap bg-brand-600 text-white shadow-sm" data-category="todos">
+                    Todos os Achados
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 transition whitespace-nowrap" data-category="eletronicos">
+                    ⚡ Eletrônicos
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 transition whitespace-nowrap" data-category="casa">
+                    🍳 Casa & Cozinha
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 transition whitespace-nowrap" data-category="wearables">
+                    ⌚ Wearables
+                </button>
+            </div>
+
+            <!-- Sort dropdown -->
+            <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                <label for="sortSelect" class="text-xs font-semibold text-slate-500 whitespace-nowrap">Ordenar por:</label>
+                <select id="sortSelect" class="bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-700 focus:outline-none focus:border-brand-500">
+                    <option value="relevancia">Relevância / Destaque</option>
+                    <option value="menor-preco">Menor Preço</option>
+                    <option value="maior-desconto">Maior Desconto</option>
+                    <option value="avaliacao">Melhor Avaliação</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Grid Header -->
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-fire text-amber-500"></i> Produtos em Destaque
+            </h2>
+            <span id="productCounter" class="text-xs font-medium text-slate-500">Exibindo 4 ofertas recomendadas</span>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- PRODUTO 1: Fone Bluetooth Noise Cancelling -->
+            <div class="product-card group bg-white rounded-2xl border border-slate-200 hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden relative" 
+                 data-category="eletronicos" data-price="189.90" data-discount="45" data-rating="4.9" data-name="fone bluetooth sem fio noise cancelling cancelamento ruido">
+                
+                <!-- Discount Badge -->
+                <div class="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-sm">
+                        -45% OFF
+                    </span>
+                    <span class="bg-amber-400 text-slate-900 text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow-sm flex items-center gap-1">
+                        <i class="fa-solid fa-trophy text-[9px]"></i> Top Vendas
+                    </span>
+                </div>
+
+                <!-- Marketplace Tag -->
+                <div class="absolute top-3 right-3 z-10">
+                    <span class="amazon-badge text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <i class="fa-brands fa-amazon"></i> Amazon
+                    </span>
+                </div>
+
+                <!-- Product Image Container -->
+                <div class="relative bg-slate-50 p-6 flex items-center justify-center overflow-hidden aspect-square group-hover:bg-slate-100/80 transition">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" 
+                         alt="Fone de Ouvido Bluetooth Sem Fio" 
+                         class="object-contain max-h-48 group-hover:scale-105 transition duration-500 ease-out"
+                         loading="lazy">
+                    <button onclick="openQuickView(1)" class="absolute bottom-3 bg-white/90 backdrop-blur text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0 hover:bg-white flex items-center gap-1.5">
+                        <i class="fa-regular fa-eye"></i> Espiar
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px]">Eletrônicos</span>
+                            <div class="flex items-center text-amber-400 font-bold gap-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span class="text-slate-700">4.9</span>
+                                <span class="text-slate-400 font-normal">(1.280)</span>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 hover:text-brand-600 transition mb-3 leading-snug">
+                            Fone de Ouvido Bluetooth Sem Fio com Cancelamento de Ruído Ativo ANC
+                        </h3>
+
+                        <!-- Price Section -->
+                        <div class="mb-4">
+                            <span class="text-xs text-slate-400 line-through block">De R$ 349,90</span>
+                            <div class="flex items-baseline gap-1.5">
+                                <span class="text-2xl font-black text-slate-900">R$ 189,90</span>
+                                <span class="text-xs font-semibold text-emerald-600">à vista</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">
+                                <i class="fa-solid fa-truck-fast text-slate-400"></i> Frete Grátis Prime
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://amazon.com.br" target="_blank" rel="noopener noreferrer font-bold" 
+                           class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition">
+                            <i class="fa-solid fa-cart-shopping"></i> Ver Oferta na Amazon
+                        </a>
+                        <button onclick="copyAffiliateLink('https://amazon.com.br/dp/exemplo-fone', 'Fone Bluetooth ANC')" 
+                                class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-1.5 px-3 rounded-lg text-[11px] flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy"></i> Copiar Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2: Air Fryer Digital 4L -->
+            <div class="product-card group bg-white rounded-2xl border border-slate-200 hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden relative" 
+                 data-category="casa" data-price="299.00" data-discount="38" data-rating="4.8" data-name="fritadeira eletrica air fryer digital 4l sem óleo">
+                
+                <!-- Discount Badge -->
+                <div class="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-sm">
+                        -38% OFF
+                    </span>
+                    <span class="bg-emerald-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow-sm">
+                        Menor Preço 30d
+                    </span>
+                </div>
+
+                <!-- Marketplace Tag -->
+                <div class="absolute top-3 right-3 z-10">
+                    <span class="ml-badge text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <i class="fa-solid fa-bolt"></i> Mercado Livre
+                    </span>
+                </div>
+
+                <!-- Product Image Container -->
+                <div class="relative bg-slate-50 p-6 flex items-center justify-center overflow-hidden aspect-square group-hover:bg-slate-100/80 transition">
+                    <img src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&auto=format&fit=crop&q=80" 
+                         alt="Fritadeira Elétrica Air Fryer Digital" 
+                         class="object-contain max-h-48 group-hover:scale-105 transition duration-500 ease-out"
+                         loading="lazy">
+                    <button onclick="openQuickView(2)" class="absolute bottom-3 bg-white/90 backdrop-blur text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0 hover:bg-white flex items-center gap-1.5">
+                        <i class="fa-regular fa-eye"></i> Espiar
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px]">Casa & Cozinha</span>
+                            <div class="flex items-center text-amber-400 font-bold gap-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span class="text-slate-700">4.8</span>
+                                <span class="text-slate-400 font-normal">(840)</span>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 hover:text-brand-600 transition mb-3 leading-snug">
+                            Fritadeira Elétrica Air Fryer Digital 4 Litros Touchscreen Antiaderente
+                        </h3>
+
+                        <!-- Price Section -->
+                        <div class="mb-4">
+                            <span class="text-xs text-slate-400 line-through block">De R$ 489,00</span>
+                            <div class="flex items-baseline gap-1.5">
+                                <span class="text-2xl font-black text-slate-900">R$ 299,00</span>
+                                <span class="text-xs font-semibold text-emerald-600">6x sem juros</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">
+                                <i class="fa-solid fa-bolt text-yellow-500"></i> Entrega Full Amanhã
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://mercadolivre.com.br" target="_blank" rel="noopener noreferrer font-bold" 
+                           class="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition">
+                            <i class="fa-solid fa-cart-shopping"></i> Ver no Mercado Livre
+                        </a>
+                        <button onclick="copyAffiliateLink('https://mercadolivre.com.br/exemplo-airfryer', 'Air Fryer Digital 4L')" 
+                                class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-1.5 px-3 rounded-lg text-[11px] flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy"></i> Copiar Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3: Smartwatch Esportivo AMOLED -->
+            <div class="product-card group bg-white rounded-2xl border border-slate-200 hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden relative" 
+                 data-category="wearables" data-price="142.50" data-discount="52" data-rating="4.7" data-name="smartwatch relogio inteligente amoled monitor cardiaco gps">
+                
+                <!-- Discount Badge -->
+                <div class="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-sm">
+                        -52% OFF
+                    </span>
+                    <span class="bg-purple-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow-sm">
+                        Cupom Exclusivo
+                    </span>
+                </div>
+
+                <!-- Marketplace Tag -->
+                <div class="absolute top-3 right-3 z-10">
+                    <span class="ali-badge text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <i class="fa-solid fa-cart-shopping"></i> AliExpress
+                    </span>
+                </div>
+
+                <!-- Product Image Container -->
+                <div class="relative bg-slate-50 p-6 flex items-center justify-center overflow-hidden aspect-square group-hover:bg-slate-100/80 transition">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500&auto=format&fit=crop&q=80" 
+                         alt="Smartwatch Esportivo AMOLED" 
+                         class="object-contain max-h-48 group-hover:scale-105 transition duration-500 ease-out"
+                         loading="lazy">
+                    <button onclick="openQuickView(3)" class="absolute bottom-3 bg-white/90 backdrop-blur text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0 hover:bg-white flex items-center gap-1.5">
+                        <i class="fa-regular fa-eye"></i> Espiar
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px]">Wearables</span>
+                            <div class="flex items-center text-amber-400 font-bold gap-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span class="text-slate-700">4.7</span>
+                                <span class="text-slate-400 font-normal">(2.100)</span>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 hover:text-brand-600 transition mb-3 leading-snug">
+                            Smartwatch Esportivo Tela AMOLED Resoluçao HD com GPS e Monitor de Oxigênio
+                        </h3>
+
+                        <!-- Price Section -->
+                        <div class="mb-4">
+                            <span class="text-xs text-slate-400 line-through block">De R$ 298,00</span>
+                            <div class="flex items-baseline gap-1.5">
+                                <span class="text-2xl font-black text-slate-900">R$ 142,50</span>
+                                <span class="text-xs font-semibold text-emerald-600">Com Impostos</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">
+                                <i class="fa-solid fa-plane text-slate-400"></i> Remessa Conforme
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://aliexpress.com" target="_blank" rel="noopener noreferrer font-bold" 
+                           class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition">
+                            <i class="fa-solid fa-cart-shopping"></i> Ver no AliExpress
+                        </a>
+                        <button onclick="copyAffiliateLink('https://aliexpress.com/item/exemplo-smartwatch', 'Smartwatch AMOLED')" 
+                                class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-1.5 px-3 rounded-lg text-[11px] flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy"></i> Copiar Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUTO 4: Luminária LED de Mesa Articulada -->
+            <div class="product-card group bg-white rounded-2xl border border-slate-200 hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden relative" 
+                 data-category="casa" data-price="49.90" data-discount="60" data-rating="4.9" data-name="luminaria led de mesa articulada recarregavel usb estudo leitura">
+                
+                <!-- Discount Badge -->
+                <div class="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span class="bg-red-500 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-md shadow-sm">
+                        -60% OFF
+                    </span>
+                    <span class="bg-orange-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow-sm">
+                        Viral no TikTok
+                    </span>
+                </div>
+
+                <!-- Marketplace Tag -->
+                <div class="absolute top-3 right-3 z-10">
+                    <span class="shopee-badge text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <i class="fa-solid fa-bag-shopping"></i> Shopee
+                    </span>
+                </div>
+
+                <!-- Product Image Container -->
+                <div class="relative bg-slate-50 p-6 flex items-center justify-center overflow-hidden aspect-square group-hover:bg-slate-100/80 transition">
+                    <img src="https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=500&auto=format&fit=crop&q=80" 
+                         alt="Luminária de Mesa LED" 
+                         class="object-contain max-h-48 group-hover:scale-105 transition duration-500 ease-out"
+                         loading="lazy">
+                    <button onclick="openQuickView(4)" class="absolute bottom-3 bg-white/90 backdrop-blur text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0 hover:bg-white flex items-center gap-1.5">
+                        <i class="fa-regular fa-eye"></i> Espiar
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="text-slate-400 uppercase tracking-wider font-semibold text-[10px]">Casa & Decoração</span>
+                            <div class="flex items-center text-amber-400 font-bold gap-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span class="text-slate-700">4.9</span>
+                                <span class="text-slate-400 font-normal">(3.420)</span>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="font-bold text-slate-800 text-sm line-clamp-2 hover:text-brand-600 transition mb-3 leading-snug">
+                            Luminária de Mesa LED Articulada Recarregável USB 3 Modos de Luz Touch
+                        </h3>
+
+                        <!-- Price Section -->
+                        <div class="mb-4">
+                            <span class="text-xs text-slate-400 line-through block">De R$ 125,00</span>
+                            <div class="flex items-baseline gap-1.5">
+                                <span class="text-2xl font-black text-slate-900">R$ 49,90</span>
+                                <span class="text-xs font-semibold text-emerald-600">Cupom de R$ 5</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">
+                                <i class="fa-solid fa-ticket text-shopee"></i> Aceita Cupom de Frete
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="https://shopee.com.br" target="_blank" rel="noopener noreferrer font-bold" 
+                           class="w-full bg-shopee hover:bg-orange-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-sm transition">
+                            <i class="fa-solid fa-cart-shopping"></i> Ver Oferta na Shopee
+                        </a>
+                        <button onclick="copyAffiliateLink('https://shopee.com.br/exemplo-luminaria', 'Luminária LED Recarregável')" 
+                                class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-1.5 px-3 rounded-lg text-[11px] flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy"></i> Copiar Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Coupons Section -->
+        <section class="mt-16 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 md:p-10 text-white relative overflow-hidden" id="cupons">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                <div class="max-w-xl">
+                    <span class="text-brand-400 font-extrabold text-xs tracking-wider uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+                        Economia Extra
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-3 mb-2">Cupons de Desconto Ativos</h2>
+                    <p class="text-slate-300 text-sm">
+                        Copie os códigos promocionais e aplique no carrinho para garantir o menor preço final nas suas compras.
+                    </p>
+                </div>
+
+                <!-- Coupon Cards List -->
+                <div class="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Coupon 1 -->
+                    <div class="bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">Amazon</span>
+                            <span class="text-sm font-extrabold text-white">R$ 20 OFF em Tech</span>
+                            <span class="text-[11px] text-slate-400 block mt-0.5">Compras acima de R$ 150</span>
+                        </div>
+                        <button onclick="copyCoupon('TECH20AMZ')" class="px-3 py-2 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition whitespace-nowrap flex items-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> TECH20AMZ
+                        </button>
+                    </div>
+
+                    <!-- Coupon 2 -->
+                    <div class="bg-slate-800/80 border border-slate-700 p-4 rounded-xl flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] text-orange-400 font-bold uppercase tracking-wider block">Shopee</span>
+                            <span class="text-sm font-extrabold text-white">10% OFF Geral</span>
+                            <span class="text-[11px] text-slate-400 block mt-0.5">Sem valor mínimo</span>
+                        </div>
+                        <button onclick="copyCoupon('ACHADOTOP10')" class="px-3 py-2 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition whitespace-nowrap flex items-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> ACHADOTOP10
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Telegram / WhatsApp Community Banner -->
+        <section class="mt-12 bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-2xl flex-shrink-0 shadow-lg shadow-emerald-500/30">
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-extrabold text-slate-900">Não perca nenhuma promoção relâmpago!</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-0.5">
+                        Entre no nosso canal e receba alertas de bugs de preço e ofertas antes que esgotem.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <a href="https://telegram.org" target="_blank" class="flex-1 md:flex-none px-5 py-3 bg-sky-500 hover:bg-sky-600 text-white text-xs font-extrabold rounded-xl shadow transition text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-telegram text-base"></i> Telegram
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="flex-1 md:flex-none px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold rounded-xl shadow transition text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="modalContent">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <div class="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-xs font-bold text-slate-900">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <p id="toastTitle" class="text-xs font-bold">Link Copiado!</p>
+            <p id="toastMessage" class="text-[11px] text-slate-300">Cole no seu navegador para acessar a oferta.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- About -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">AchadosTop</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Sua vitrine diária dos melhores produtos comercializados nas maiores plataformas do Brasil e do mundo.
+                    </p>
+                </div>
+
+                <!-- Marketplaces -->
+                <div>
+                    <h4 class="text-white font-bold mb-3">Lojas Monitoradas</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Amazon Brasil</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shopee Oficial</a></li>
+                        <li><a href="#" class="hover:text-white transition">Mercado Livre</a></li>
+                        <li><a href="#" class="hover:text-white transition">AliExpress Choice</a></li>
+                    </ul>
+                </div>
+
+                <!-- Transparency & Disclosure -->
+                <div>
+                    <h4 class="text-white font-bold mb-3">Transparência</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Participamos de programas de afiliados dos marketplaces citados. Ao comprar através dos nossos links, podemos receber uma comissão sem nenhum custo adicional para você.
+                    </p>
+                </div>
+
+                <!-- Social & Rights -->
+                <div>
+                    <h4 class="text-white font-bold mb-3">Redes Sociais</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="fa-brands fa-tiktok w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition"></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-slate-500 text-[11px] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 AchadosTop. Todos os direitos reservados.</p>
+                <p>Preços e disponibilidade sujeitos a alterações pelo marketplace anunciante.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample Product Data for Dynamic Quick View Modal
+        const productsData = {
+            1: {
+                title: "Fone de Ouvido Bluetooth Sem Fio com Cancelamento de Ruído Ativo ANC",
+                price: "R$ 189,90",
+                oldPrice: "R$ 349,90",
+                discount: "45% OFF",
+                rating: "4.9 (1.280 avaliações)",
+                store: "Amazon",
+                badgeClass: "amazon-badge",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+                description: "Som de alta fidelidade com drivers de 40mm, bateria com duração de até 30 horas contínuas, microfones com redução de ruído para chamadas cristalinas e design dobrável ultra confortável.",
+                link: "https://amazon.com.br"
+            },
+            2: {
+                title: "Fritadeira Elétrica Air Fryer Digital 4 Litros Touchscreen Antiaderente",
+                price: "R$ 299,00",
+                oldPrice: "R$ 489,00",
+                discount: "38% OFF",
+                rating: "4.8 (840 avaliações)",
+                store: "Mercado Livre",
+                badgeClass: "ml-badge",
+                image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&auto=format&fit=crop&q=80",
+                description: "Prepare refeições crocantes e saudáveis sem usar uma gota de óleo. Painel digital touch pré-programado com 8 funções, cesto antiaderente fácil de lavar e timer sonoro.",
+                link: "https://mercadolivre.com.br"
+            },
+            3: {
+                title: "Smartwatch Esportivo Tela AMOLED Resolução HD com GPS e Monitor de Oxigênio",
+                price: "R$ 142,50",
+                oldPrice: "R$ 298,00",
+                discount: "52% OFF",
+                rating: "4.7 (2.100 avaliações)",
+                store: "AliExpress",
+                badgeClass: "ali-badge",
+                image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&auto=format&fit=crop&q=80",
+                description: "Mais de 100 modos esportivos, monitoramento contínuo de frequência cardíaca, sono e oxigenação sanguínea (SpO2). Resistente à água (5ATM) e bateria para até 12 dias de uso.",
+                link: "https://aliexpress.com"
+            },
+            4: {
+                title: "Luminária de Mesa LED Articulada Recarregável USB 3 Modos de Luz Touch",
+                price: "R$ 49,90",
+                oldPrice: "R$ 125,00",
+                discount: "60% OFF",
+                rating: "4.9 (3.420 avaliações)",
+                store: "Shopee",
+                badgeClass: "shopee-badge",
+                image: "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=600&auto=format&fit=crop&q=80",
+                description: "Ideal para estudos e leitura. Haste 360° flexível, iluminação suave sem fadiga ocular, bateria interna recarregável via USB e 3 níveis de intensidade de luz ajustáveis no toque.",
+                link: "https://shopee.com.br"
+            }
+        };
+
+        // Category Filter Logic
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-sm');
+                    b.classList.add('text-slate-600', 'bg-white', 'border', 'border-slate-200');
+                });
+
+                btn.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.remove('text-slate-600', 'bg-white', 'border', 'border-slate-200');
+
+                const category = btn.dataset.category;
+                filterAndSearchProducts();
+            });
+        });
+
+        // Search Input Filter
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearch');
+
+        searchInput.addEventListener('input', (e) => {
+            if (e.target.value.trim() !== '') {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            filterAndSearchProducts();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearSearchBtn.classList.add('hidden');
+            filterAndSearchProducts();
+        });
+
+        function filterAndSearchProducts() {
+            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const cardName = card.dataset.name.toLowerCase();
+
+                const matchesCategory = (activeCategory === 'todos' || cardCategory === activeCategory);
+                const matchesSearch = cardName.includes(searchTerm);
+
+                if (matchesCategory && matchesSearch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            document.getElementById('productCounter').textContent = `Exibindo ${visibleCount} oferta(s)`;
+        }
+
+        // Sorting Logic
+        const sortSelect = document.getElementById('sortSelect');
+        const productGrid = document.getElementById('productGrid');
+
+        sortSelect.addEventListener('change', () => {
+            const val = sortSelect.value;
+            const cardsArray = Array.from(productCards);
+
+            cardsArray.sort((a, b) => {
+                if (val === 'menor-preco') {
+                    return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                } else if (val === 'maior-desconto') {
+                    return parseFloat(b.dataset.discount) - parseFloat(a.dataset.discount);
+                } else if (val === 'avaliacao') {
+                    return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                }
+                return 0; // default order
+            });
+
+            cardsArray.forEach(card => productGrid.appendChild(card));
+        });
+
+        // Quick View Modal
+        function openQuickView(id) {
+            const p = productsData[id];
+            if (!p) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="bg-slate-100 rounded-2xl p-4 flex items-center justify-center">
+                    <img src="${p.image}" alt="${p.title}" class="max-h-64 object-contain">
+                </div>
+                <div class="flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="${p.badgeClass} text-[10px] font-extrabold px-2.5 py-1 rounded-full">${p.store}</span>
+                            <span class="text-amber-500 font-bold text-xs"><i class="fa-solid fa-star"></i> ${p.rating}</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900 leading-snug">${p.title}</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">${p.description}</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="text-xs text-slate-400 line-through block">De ${p.oldPrice}</span>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black text-slate-900">${p.price}</span>
+                            <span class="text-xs font-bold text-red-500 bg-red-100 px-2 py-0.5 rounded">${p.discount}</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <a href="${p.link}" target="_blank" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ir para a loja oficial
+                        </a>
+                        <button onclick="copyAffiliateLink('${p.link}', '${p.title}')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+                            <i class="fa-regular fa-copy"></i> Copiar Link do Produto
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        // Copy Affiliate Link
+        function copyAffiliateLink(url, title) {
+            const textToCopy = `🔥 Confira esse achado: ${title}\n👉 Link com desconto: ${url}`;
+            
+            // Fallback execCommand for iframe compatibility
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast('Link Copiado!', 'Compartilhe a oferta com seus amigos!');
+        }
+
+        // Copy Coupon Code
+        function copyCoupon(code) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast(`Cupom ${code}`, 'Código copiado com sucesso para a área de transferência!');
+        }
+
+        // Toast Helper
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Close modal on click outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('quickViewModal');
+            if (e.target === modal) {
+                closeQuickView();
+            }
+        });
+    </script>
+</body>
+</html>
